@@ -77,7 +77,7 @@ resource "aws_iam_policy" "site_deployer_policy" {
 resource "aws_iam_policy_attachment" "site-deployer-attach-user-policy" {
   provider   = "aws.${var.region}"
   name       = "${var.bucket_name}-deployer-policy-attachment"
-  users      = ["${var.deployer}"]
+  users      = "${var.deployer}"
   policy_arn = "${aws_iam_policy.site_deployer_policy.arn}"
 }
 
